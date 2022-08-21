@@ -1,0 +1,11 @@
+<launch> 
+
+
+  <!-- <node pkg="tf" type="static_transform_publisher" name="baselink_gps1_tf" args= "0.5 0.0 0.4 0.0 0.0 0.0 base_link gps_link 100" /> -->
+  <node name="gps_msgs_package_node" pkg="gps_msgs_package" type="gps_msgs_package_node" output="screen" > 
+     <param name="use_imu_yaw_angle" value="1"/>
+     <param name="use_two_gps"       value="0"/>
+     <remap from="/gps1/fix"     to="/ublox_gps/fix" />   
+     <remap from="/gps2/fix"     to="/ublox_gps2/fix" />   
+  </node>
+</launch> 
