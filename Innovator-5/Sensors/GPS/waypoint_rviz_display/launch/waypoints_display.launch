@@ -1,0 +1,10 @@
+<launch>
+
+   <!--  datum topic use  : 1 -->
+   <rosparam param="gps_init_datum">[461611.7923408, 3880799.5980877]</rosparam>
+   <!--  datum topic use  : 0 -->
+   <param name="use_gps_init_datum" type="int" value = "0" />    
+   
+   <node pkg="waypoint_rviz_display" type="waypoint_rviz_display_node" name="waypoint_rviz_display_node" output="screen"/>
+
+</launch>
