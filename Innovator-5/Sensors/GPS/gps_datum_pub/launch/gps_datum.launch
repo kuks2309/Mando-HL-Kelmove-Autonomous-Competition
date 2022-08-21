@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+
+<launch>
+
+  <node pkg="gps_datum_pub" type="gps_datum_pub_node" name="gps_datum_pub_node" output="screen">
+  
+    <!-- Datum as latitude, longitude [decimal deg.], yaw [ENU, degrees] -->      
+     <rosparam param="datum">[35.824790 , 128.7533499 , 0]</rosparam>  
+     
+    
+  </node>
+  
+</launch>
