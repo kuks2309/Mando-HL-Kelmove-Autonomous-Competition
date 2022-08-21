@@ -1,0 +1,7 @@
+<launch>
+<arg name="coordinate_type" value="absolute"/>
+<node pkg="utm_gps_distance" type="gps_node" name="$(arg coordinate_type)_Coordinate" output="screen">
+   <rosparam command="load" file="$(find utm_gps_distance)/config/gps_param_$(arg coordinate_type)_type.yaml" />
+  </node>
+</launch>
+
