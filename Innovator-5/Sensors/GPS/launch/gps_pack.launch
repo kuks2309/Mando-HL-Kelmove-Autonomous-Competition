@@ -1,0 +1,38 @@
+<launch>
+    
+    
+    <!-- Static Transform -->
+    <node pkg="tf" type="static_transform_publisher" name="map_odom_tf" args= "0.0 0.0 0.0 0.0 0.0 0.0 map odom 10" />
+    <node pkg="tf" type="static_transform_publisher" name="map_utm_tf" args= "0.0 0.0 0.0 0.0 0.0 0.0 map utm 10" />
+    <node pkg="tf" type="static_transform_publisher" name="gps1foot2baselink_tf" args= "-0.5 0.0 1.0  0.0 0.0 0.0 gps1_footprint base_link 10" />
+        
+    <!-- Ublox F9P GPS bringup launch GPS 관련한 package를 여기에 넣으세요 -->
+    
+    
+    
+    
+    
+    <!-- imu A9 launch -->
+    <include file="$(find handsfree_ros_imu)/launch/handsfree_imu_a9.launch"/>
+          
+    <!-- GPS dataum publishing launch -->
+    <include file="$(find gps_datum_pub)/launch/gps_datum.launch"/>
+
+    <!-- GPS data publishing launch -->
+    <include file="$(find gps_msgs_package)/launch/gps_msgs_package.launch"/>
+        
+    <!-- GPS odom data publishing launch -->
+    <include file="$(find geonav_transform)/launch/geonav_transform.launch"/>
+    
+    <!-- GPS waypoint display launch -->
+    <include file="$(find waypoint_rviz_display)/launch/waypoints_display.launch"/>
+
+    <!-- 加载 rviz -->
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find waypoint_rviz_display)/rviz/waypoint_display.rviz">
+    </node>
+    
+    <!-- pathrviz -->
+    <node pkg="waypoint_rviz_display" type="geoodom_path_node.py" name="geoodom_path_node">
+    </node>
+
+</launch>
