@@ -91,7 +91,7 @@ void wgs2utm(double lat, double lon, int zone , double& east, double& north){
             (t / 40320.0 * N * pow(cos(phi), 8.0) * l8coef * pow(l, 8.0));
 }
 
-void navfix_gps1_Callback(const sensor_msgs::NavSatFix::ConstPtr& gps_msg)
+void navfix_gps1_Callback(const sensor_msgs::NavSatFix::ConstPtr& gps_msg)  // front GPS
 {
 	lat1 = gps_msg->latitude;
     lon1 = gps_msg->longitude;
@@ -144,7 +144,7 @@ void navfix_gps1_Callback(const sensor_msgs::NavSatFix::ConstPtr& gps_msg)
     */
 }
 
-void navfix_gps2_Callback(const sensor_msgs::NavSatFix::ConstPtr& gps_msg)
+void navfix_gps2_Callback(const sensor_msgs::NavSatFix::ConstPtr& gps_msg)   // rear GPS
 {
 	lat2 = gps_msg->latitude;
     lon2 = gps_msg->longitude;
@@ -287,8 +287,8 @@ int main(int argc, char **argv)
   while (ros::ok())
   {	
 	
-	diff_x = Pose2.x - Pose1.x;
-	diff_y = Pose2.y - Pose1.y;
+	diff_x = Pose1.x - Pose2.x;
+	diff_y = Pose1.y - Pose2.y;
 	
 	
 	if((fix1 == 2) && (fix2==2) )  // if 2 gps's are all fixed
