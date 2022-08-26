@@ -495,18 +495,7 @@ int main(int argc, char **argv)
 
 	    //printf("d_x %6.3lf d_y %6.3lf \n", delta_x,delta_y);
 	    //printf("waypoint_distance  %6.3lf \n", waypoint_distance);
-	    /*
-	    if( (count>=0) && ( my_pose_utm_waypoint.x  >=(waypoint_distance -  WayPoint_X_Tor) ) && ( my_pose_utm_waypoint.x <=(waypoint_distance +  WayPoint_X_Tor) )  )
-        {           
-	       printf("----------------------------\n"); 
-           printf("Arrvied at My WayPoint[%3d] !\n",wp_go_id); 
-           printf("----------------------------\n"); 
-           
-           ros::Duration(4.0).sleep() ;      
-	       count = -3;
-	       wp_go_id++;
-	     }
-	   */
+	  
 	     if( (count>=0) && (pos_error_x <= WayPoint_X_Tor) && (pos_error_y <= WayPoint_Y_Tor )  )
         {           
 	       printf("----------------------------\n"); 
