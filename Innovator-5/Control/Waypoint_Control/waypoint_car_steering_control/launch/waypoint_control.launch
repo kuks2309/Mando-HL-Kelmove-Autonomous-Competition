@@ -1,0 +1,10 @@
+<launch>
+  <param name="heading_control_p_gain" type="double" value = "0.25" /> 
+  <param name="heading_control_pd_gain" type="double" value = "2.5" /> 
+  
+  <param name="offset_control_p_gain" type="double" value = "3.0" /> 
+  <param name="offset_control_pd_gain" type="double" value = "4.5" />   
+  
+  <node pkg="waypoint_car_steering_control" type="waypoint_car_steering_control_node" name="waypoint_car_steering_control_node" output="screen"/>
+  
+</launch>
