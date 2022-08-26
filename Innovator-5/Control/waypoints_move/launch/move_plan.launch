@@ -1,0 +1,10 @@
+<launch>
+
+   <rosparam param="gps_init_datum">[0.0, 0.0]</rosparam>
+   <node pkg="waypoints_move" type="waypoints_move_node" name="waypoints_move_node" output="screen">
+   
+       <param name="use_utm_absolute_mode"   value="false"/>
+   
+   </node>
+
+</launch>
